@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Study App</string>
+    <string name="message_1">Good Morning</string>
+    <string name="message_2"> Good Afternoon</string>
+    <string name="message_3">Good Evening</string>
+    <string name="message_4">You really need better time management</string>
+    <string name="message_5">Ben franklin is very disappointed with you right now</string>
+    <string name="message_6">Pulling an all-nighter are we?</string>
+    <!-- navigation drawer -->
+    <string name="nav_notes">Notes</string>
+    <string name="nav_tands">Timer/Stopwatch</string>
+    <string name="nav_sched">Schedule</string>
+    <string name="hello_error">Hello</string>
+    <string name="title_activity_notes">notes</string>
+    <!-- tands -->
+    <string name="button_start">start</string>
+    <string name="button_stop">stop</string>
+    <string name="button_reset">reset</string>
+    <string name="T_Add_10">Add 10m</string>
+    <string name="T_Add_50">Add 50m</string>
+    <string name="T_Add_2">Add 2h</string>
+    <string name="T_Clear">Clear</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="view_save">Save</string>
+    <string name="view_delete">Delete</string>
+    <string name="tas_timer">Timer</string>
+    <string name="tas_stopwatch">Stopwatch</string>
+
+    <!-- sched -->
+    <string name="Update">Update</string>
+    <string name="Monday">Monday:</string>
+    <string name="Tuesday">Tuesday:</string>
+    <string name="Wednesday">Wednesday:</string>
+    <string name="Thursday">Thursday:</string>
+    <string name="Friday">Friday:</string>
+    <string-array name="dates">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+
+</resources>
