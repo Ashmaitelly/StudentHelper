@@ -2,7 +2,7 @@ package com.abdsh.studenthelper;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,17 +94,14 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.buttonStart:
-                running = true;
-                break;
-            case R.id.buttonStop:
-                running = false;
-                break;
-            case R.id.buttonReset:
-                running = false;
-                ticks = 0;
-                break;
+        int id = v.getId();
+        if (id == R.id.buttonStart) {
+            running = true;
+        } else if (id == R.id.buttonStop) {
+            running = false;
+        } else if (id == R.id.buttonReset) {
+            running = false;
+            ticks = 0;
         }
     }
 }

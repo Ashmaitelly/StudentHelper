@@ -1,9 +1,9 @@
 package com.abdsh.studenthelper;
 
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -32,25 +32,25 @@ public class tands extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.tands_timer:
-                FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                TimerFragment timerFragment = new TimerFragment();
-                fragmentTransaction2.replace(R.id.content_frame, timerFragment);
-                fragmentTransaction2.addToBackStack(null);
-                fragmentTransaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                fragmentTransaction2.commit();
-                return true;
-            case R.id.tands_stopwatch:
-                FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-                StopwatchFragment stopwatchFragment = new StopwatchFragment();
-                fragmentTransaction1.replace(R.id.content_frame, stopwatchFragment);
-                fragmentTransaction1.addToBackStack(null);
-                fragmentTransaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                fragmentTransaction1.commit();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.tands_timer) {
+            FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+            TimerFragment timerFragment = new TimerFragment();
+            fragmentTransaction2.replace(R.id.content_frame, timerFragment);
+            fragmentTransaction2.addToBackStack(null);
+            fragmentTransaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            fragmentTransaction2.commit();
+            return true;
+        } else if (id == R.id.tands_stopwatch) {
+            FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+            StopwatchFragment stopwatchFragment = new StopwatchFragment();
+            fragmentTransaction1.replace(R.id.content_frame, stopwatchFragment);
+            fragmentTransaction1.addToBackStack(null);
+            fragmentTransaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            fragmentTransaction1.commit();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 

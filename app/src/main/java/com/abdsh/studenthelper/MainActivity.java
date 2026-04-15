@@ -1,11 +1,11 @@
 package com.abdsh.studenthelper;
 
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -24,16 +24,12 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 int id=menuItem.getItemId();
                 Intent  intent=new Intent();
-                switch (id){
-                    case R.id.nav_notes:
-                        intent=new Intent(MainActivity.this,NotesActivity.class);
-                        break;
-                    case R.id.nav_tands:
-                        intent=new Intent(MainActivity.this,tands.class);
-                        break;
-                    case R.id.nav_sched:
-                        intent=new Intent(MainActivity.this,ScheduleActivity.class);
-                        break;
+                if (id == R.id.nav_notes) {
+                    intent = new Intent(MainActivity.this, NotesActivity.class);
+                } else if (id == R.id.nav_tands) {
+                    intent = new Intent(MainActivity.this, tands.class);
+                } else if (id == R.id.nav_sched) {
+                    intent = new Intent(MainActivity.this, ScheduleActivity.class);
                 }
                 startActivity(intent);
                 return false;

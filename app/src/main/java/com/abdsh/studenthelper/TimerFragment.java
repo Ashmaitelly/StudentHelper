@@ -2,7 +2,7 @@ package com.abdsh.studenthelper;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,33 +101,26 @@ public class TimerFragment extends Fragment implements View.OnClickListener  {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.TbuttonStart:
-                running = true;
-                break;
-            case R.id.TbuttonStop:
-                running = false;
-                break;
-            case R.id.TbuttonReset:
-                running = false;
-                ticks = def;
-                break;
-            case R.id.Tadd10:
-                ticks=ticks+600;
-                def=ticks;
-                break;
-            case R.id.Tadd50:
-                ticks=ticks+(600*5);
-                def=ticks;
-                break;
-            case R.id.Tadd2:
-                ticks=ticks+(600*12);
-                def=ticks;
-                break;
-            case R.id.Tbuttonclear:
-                ticks=0;
-                def=ticks;
-                break;
+        int id = v.getId();
+        if (id == R.id.TbuttonStart) {
+            running = true;
+        } else if (id == R.id.TbuttonStop) {
+            running = false;
+        } else if (id == R.id.TbuttonReset) {
+            running = false;
+            ticks = def;
+        } else if (id == R.id.Tadd10) {
+            ticks = ticks + 600;
+            def = ticks;
+        } else if (id == R.id.Tadd50) {
+            ticks = ticks + (600 * 5);
+            def = ticks;
+        } else if (id == R.id.Tadd2) {
+            ticks = ticks + (600 * 12);
+            def = ticks;
+        } else if (id == R.id.Tbuttonclear) {
+            ticks = 0;
+            def = ticks;
         }
     }
 }
