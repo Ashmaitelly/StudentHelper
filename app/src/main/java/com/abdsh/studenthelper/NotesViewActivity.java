@@ -30,6 +30,10 @@ public class NotesViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes_view);
         Toolbar myToolbar = findViewById(R.id.view_toolbar);
         setSupportActionBar(myToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("View Note");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         Intent intent = getIntent();
         int noteNo= intent.getIntExtra(ITEM_NUMBER,0);
         sadel=noteNo;
@@ -92,5 +96,11 @@ public class NotesViewActivity extends AppCompatActivity {
                     new String[]{Integer.toString(ad)});
             finish();
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

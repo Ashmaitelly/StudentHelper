@@ -21,6 +21,10 @@ public class ScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
         Toolbar myToolbar = findViewById(R.id.sched_toolbar);
         setSupportActionBar(myToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Weekly Schedule");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,5 +79,10 @@ public class ScheduleActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
