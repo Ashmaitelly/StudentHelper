@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SchedAddActivity">
+    <EditText
+        android:id="@+id/update_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Day Schedule"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update_text"
+        android:layout_centerInParent="true"
+        android:elevation="4dp"
+        android:text="@string/Update"
+        android:onClick="sched_upd"/>
+    <Spinner
+        android:id="@+id/update_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:entries="@array/dates"
+        android:layout_above="@id/update_text">
+    </Spinner>
+
+</RelativeLayout>
