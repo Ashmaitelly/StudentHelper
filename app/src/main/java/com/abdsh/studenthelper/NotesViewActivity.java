@@ -2,9 +2,9 @@ package com.abdsh.studenthelper;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CursorAdapter;
@@ -30,6 +30,10 @@ public class NotesViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes_view);
         Toolbar myToolbar = findViewById(R.id.view_toolbar);
         setSupportActionBar(myToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("View Note");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         Intent intent = getIntent();
         int noteNo= intent.getIntExtra(ITEM_NUMBER,0);
         sadel=noteNo;
@@ -62,17 +66,15 @@ public class NotesViewActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.view_save:
-                Adel(sadel, true);
-                return true;
-            case R.id.view_delete:
-                Adel(sadel, false);
-                return true;
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.view_save) {
+            Adel(sadel, true);
+            return true;
+        } else if (id == R.id.view_delete) {
+            Adel(sadel, false);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
     public void Adel(int ad,Boolean b){
@@ -94,5 +96,11 @@ public class NotesViewActivity extends AppCompatActivity {
                     new String[]{Integer.toString(ad)});
             finish();
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
