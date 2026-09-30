@@ -1,6 +1,7 @@
 package com.abdsh.studenthelper;
 
-import android.app.ListActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.content.Intent;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -14,12 +15,11 @@ import android.database.sqlite.SQLiteException;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class NotesActivity extends ListActivity {
+public class NotesActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private Cursor cursor;
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    private void onListItemClick(int position, long id) {
         if (position==0){
             Intent intent=new Intent(NotesActivity.this,NoteAddActivity.class);
             startActivity(intent);
@@ -34,7 +34,7 @@ public class NotesActivity extends ListActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ListView listView = getListView();
+        ListView listView = findViewById(R.id.notes_list);
         try {
             SQLiteOpenHelper sqLiteOpenHelper = new NotesSQLite(this);
             db = sqLiteOpenHelper.getReadableDatabase();
@@ -58,9 +58,15 @@ public class NotesActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
+        setContentView(R.layout.activity_notes);
+        Toolbar toolbar = findViewById(R.id.notes_toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Notes");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        ListView listView = findViewById(R.id.notes_list);
+        listView.setOnItemClickListener((parent, view, position, id) -> onListItemClick(position, id));
     }
 
     @Override
@@ -68,5 +74,14 @@ public class NotesActivity extends ListActivity {
         super.onDestroy();
         cursor.close();
         db.close();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

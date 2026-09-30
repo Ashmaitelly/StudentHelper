@@ -36,7 +36,10 @@ public class tands extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.tands_timer) {
+        if (id == android.R.id.home) {
+            finish();
+            return true;
+        } else if (id == R.id.tands_timer) {
             if (getSupportActionBar() != null) getSupportActionBar().setTitle("Timer");
             FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
             TimerFragment timerFragment = new TimerFragment();
