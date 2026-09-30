@@ -15,6 +15,7 @@ public class NoteAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_add);
+        EdgeToEdgeHelper.apply(this);
     }
 
     public void add_note(View view) {

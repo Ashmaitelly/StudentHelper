@@ -19,6 +19,7 @@ public class ScheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        EdgeToEdgeHelper.apply(this);
         Toolbar myToolbar = findViewById(R.id.sched_toolbar);
         setSupportActionBar(myToolbar);
         if (getSupportActionBar() != null) {

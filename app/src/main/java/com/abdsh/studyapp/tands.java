@@ -14,6 +14,7 @@ public class tands extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tands);
+        EdgeToEdgeHelper.apply(this);
         Toolbar tasToolbar = findViewById(R.id.tands_toolbar);
         setSupportActionBar(tasToolbar);
         if (getSupportActionBar() != null) {

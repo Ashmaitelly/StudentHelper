@@ -28,6 +28,7 @@ public class NotesViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_view);
+        EdgeToEdgeHelper.apply(this);
         Toolbar myToolbar = findViewById(R.id.view_toolbar);
         setSupportActionBar(myToolbar);
         if (getSupportActionBar() != null) {

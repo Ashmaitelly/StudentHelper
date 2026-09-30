@@ -16,6 +16,7 @@ public class SchedAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sched_add);
+        EdgeToEdgeHelper.apply(this);
     }
     public void sched_upd(View view) {
         SQLiteOpenHelper sqLiteOpenHelper=new NotesSQLite(this);
