@@ -1,4 +1,4 @@
-package com.abdsh.studenthelper;
+package com.abdsh.studyapp;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,30 +9,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class StopwatchFragment extends Fragment implements View.OnClickListener {
+
+public class TimerFragment extends Fragment implements View.OnClickListener  {
     int ticks = 0;
+    int def= ticks;
     boolean running = false;
     boolean wasRunning = false;
 
-    public StopwatchFragment() {
-
+    public TimerFragment() {
+        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_stopwatch, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_timer, container, false);
         runTimer(view);
-        Button buttonStart = view.findViewById(R.id.buttonStart);
-        buttonStart.setOnClickListener(this);
-        Button buttonStop = view.findViewById(R.id.buttonStop);
-        buttonStop.setOnClickListener(this);
-        Button buttonReset = view.findViewById(R.id.buttonReset);
-        buttonReset.setOnClickListener(this);
+        Button tbuttonStart = view.findViewById(R.id.TbuttonStart);
+        tbuttonStart.setOnClickListener(this);
+        Button tbuttonStop = view.findViewById(R.id.TbuttonStop);
+        tbuttonStop.setOnClickListener(this);
+        Button tbuttonReset = view.findViewById(R.id.TbuttonReset);
+        tbuttonReset.setOnClickListener(this);
+        Button tadd10 = view.findViewById(R.id.Tadd10);
+        tadd10.setOnClickListener(this);
+        Button tadd50 = view.findViewById(R.id.Tadd50);
+        tadd50.setOnClickListener(this);
+        Button tadd2 = view.findViewById(R.id.Tadd2);
+        tadd2.setOnClickListener(this);
+        Button tclear=view.findViewById(R.id.Tbuttonclear);
+        tclear.setOnClickListener(this);
         return view;
     }
 
@@ -44,7 +52,6 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
             running = savedInstanceState.getBoolean("running");
             wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
-
     }
 
 
@@ -64,7 +71,7 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
     }
 
     public void runTimer(View view) {
-        final TextView textView = view.findViewById(R.id.textViewTimePassed);
+        final TextView textView = view.findViewById(R.id.textViewTimeRemaining);
 
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -75,8 +82,8 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
                 int hours = ticks / 3600;
                 String stringToDisplay = String.format("%d:%02d:%02d", hours, minutes, seconds);
                 textView.setText(stringToDisplay);
-                if (running) {
-                    ticks++;
+                if (running && ticks>0) {
+                    ticks--;
                 }
                 handler.postDelayed(this, 1000);
             }
@@ -95,13 +102,25 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.buttonStart) {
+        if (id == R.id.TbuttonStart) {
             running = true;
-        } else if (id == R.id.buttonStop) {
+        } else if (id == R.id.TbuttonStop) {
             running = false;
-        } else if (id == R.id.buttonReset) {
+        } else if (id == R.id.TbuttonReset) {
             running = false;
+            ticks = def;
+        } else if (id == R.id.Tadd10) {
+            ticks = ticks + 600;
+            def = ticks;
+        } else if (id == R.id.Tadd50) {
+            ticks = ticks + (600 * 5);
+            def = ticks;
+        } else if (id == R.id.Tadd2) {
+            ticks = ticks + (600 * 12);
+            def = ticks;
+        } else if (id == R.id.Tbuttonclear) {
             ticks = 0;
+            def = ticks;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.abdsh.studenthelper;
+package com.abdsh.studyapp;
 
 import android.content.ContentValues;
 import android.content.Intent;

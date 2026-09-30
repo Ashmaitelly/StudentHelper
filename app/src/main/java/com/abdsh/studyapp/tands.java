@@ -1,4 +1,4 @@
-package com.abdsh.studenthelper;
+package com.abdsh.studyapp;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;

@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.abdsh.studenthelper"
+    namespace = "com.abdsh.studyapp"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.abdsh.studenthelper"
+        applicationId = "com.abdsh.studyapp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
